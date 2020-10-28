@@ -1,0 +1,62 @@
+.navigation__top .link {
+  text-decoration: none;
+  color: white;
+}
+.navigation__top {
+  display: flex;
+  background: white;
+  height: 5vh;
+  align-items: center;
+  justify-content: center;
+}
+.navigation__top > div > a {
+  color: black !important;
+}
+.navigation__logo > a {
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+}
+.navigation__logo > a::after {
+  content: " Zone";
+  font-size: 30px;
+  color: gold;
+}
+.navigation__top > div {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+.navigation__menu {
+  padding: 0px 10%;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  justify-content: space-between;
+  background: #30343f;
+  color: white;
+  height: 8vh;
+  box-shadow: 2px 2px 5px black;
+}
+
+.navigation__cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: fit-content;
+}
+.navigation__cart > p:nth-child(1) {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  border: 1px solid gray;
+  margin-right: 10px;
+  border-radius: 100px;
+}
+.navigation__cart > p:nth-child(2) {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  border: 1px solid gray;
+  border-radius: 100px;
+}
