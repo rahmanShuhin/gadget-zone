@@ -84,9 +84,12 @@ const ShoppingCart = () => {
             <h2>Cart Total: Tk. {total}</h2>
           </div>
           <div className="proceed_btn">
-            <Button>
-              Proceed To Checkout &nbsp;<LocalShippingIcon></LocalShippingIcon>
-            </Button>
+            <Link className="link" to="/checkout">
+              <Button>
+                Proceed To Checkout &nbsp;
+                <LocalShippingIcon></LocalShippingIcon>
+              </Button>
+            </Link>
           </div>
         </div>
       )}

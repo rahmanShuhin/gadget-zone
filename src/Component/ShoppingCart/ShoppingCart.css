@@ -75,7 +75,7 @@
   justify-content: flex-end;
   align-items: center;
 }
-.proceed_btn > button {
+.proceed_btn > a > button {
   background-color: orange !important;
   color: white;
 }

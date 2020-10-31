@@ -16,6 +16,8 @@ import { Sign_In_Context } from "./Component/Sign_In_Context";
 import ShoppingCart from "./Component/ShoppingCart/ShoppingCart";
 import Dashboard from "./Component/Dashboard/Dashboard";
 import Order from "./Component/Order/Order";
+import { PrivateRoute } from "./UseAuth";
+import Checkout from "./Component/Checkout/Checkout";
 function App() {
   return (
     <HomeWrapper>
@@ -53,6 +55,9 @@ function App() {
                 <Navigation></Navigation>
                 <ShoppingCart></ShoppingCart>
               </Route>
+              <PrivateRoute exact path="/checkout">
+                <Checkout></Checkout>
+              </PrivateRoute>
             </Switch>
           </Router>
         </Data_Context>
