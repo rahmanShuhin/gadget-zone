@@ -13,14 +13,7 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay]);
 const Slider = () => {
   return (
-    <Swiper
-      navigation
-      autoplay
-      spaceBetween={0}
-      slidesPerView={1}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
+    <Swiper navigation autoplay spaceBetween={0} slidesPerView={1}>
       <SwiperSlide className="slide">
         <img
           src="https://static.gadgetandgear.com/tmp/slider/20200823_1598166505_793115.jpeg"

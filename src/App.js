@@ -10,27 +10,53 @@ import Advertise__1 from "./Component/Advertise__1/Advertise__1";
 import ShowProduct from "./Component/ShowProduct/ShowProduct";
 import Footer from "./Component/Footer/Footer";
 import HomeWrapper from "./Component/Slick_style";
+import { Data_Context } from "./Component/Data_Context";
+import Login from "./Component/Login/Login";
+import { Sign_In_Context } from "./Component/Sign_In_Context";
+import ShoppingCart from "./Component/ShoppingCart/ShoppingCart";
+import Dashboard from "./Component/Dashboard/Dashboard";
+import Order from "./Component/Order/Order";
 function App() {
   return (
     <HomeWrapper>
-      <Router>
-        <Switch>
-          <Route exact path="/product/:id">
-            <Navigation></Navigation>
-            <ShowProduct></ShowProduct>
-            <Footer></Footer>
-          </Route>
-          <Route exact path="/">
-            <Navigation></Navigation>
-            <Slider></Slider>
-            <TopSelling></TopSelling>
-            <Advertise__1></Advertise__1>
-            <TopDells></TopDells>
-            <NewArrival></NewArrival>
-            <Footer></Footer>
-          </Route>
-        </Switch>
-      </Router>
+      <Sign_In_Context>
+        <Data_Context>
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Navigation></Navigation>
+                <Slider></Slider>
+                <TopSelling></TopSelling>
+                <Advertise__1></Advertise__1>
+                <TopDells></TopDells>
+                <NewArrival></NewArrival>
+                <Footer></Footer>
+              </Route>
+              <Route exact path="/product/:id">
+                <Navigation></Navigation>
+                <ShowProduct></ShowProduct>
+                <Footer></Footer>
+              </Route>
+              <Route exact path="/login">
+                <Navigation></Navigation>
+                <Login></Login>
+              </Route>
+              <Route exact path="/order">
+                <Navigation></Navigation>
+                <Order></Order>
+              </Route>
+              <Route exact path="/dashboard">
+                <Navigation></Navigation>
+                <Dashboard></Dashboard>
+              </Route>
+              <Route exact path="/cart">
+                <Navigation></Navigation>
+                <ShoppingCart></ShoppingCart>
+              </Route>
+            </Switch>
+          </Router>
+        </Data_Context>
+      </Sign_In_Context>
     </HomeWrapper>
   );
 }

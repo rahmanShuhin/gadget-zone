@@ -45,18 +45,20 @@
   justify-content: space-around;
   width: fit-content;
 }
-.navigation__cart > p:nth-child(1) {
+.navigation__cart > a > p:nth-child(1) {
   display: flex;
   align-items: center;
   padding: 5px 20px;
   border: 1px solid gray;
   margin-right: 10px;
   border-radius: 100px;
+  color: white;
 }
-.navigation__cart > p:nth-child(2) {
+.navigation__cart > a > p:nth-child(2) {
   display: flex;
   align-items: center;
   padding: 5px 20px;
   border: 1px solid gray;
   border-radius: 100px;
+  color: white;
 }

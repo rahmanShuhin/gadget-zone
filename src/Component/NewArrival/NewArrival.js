@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 const NewArrival = () => {
   const [product, setProducts] = useState([]);
   const [active, setActive] = useState("all");
@@ -110,14 +111,15 @@ const NewArrival = () => {
         </div>
         <div className="topSelling__product__container">
           <Slider {...settings}>
-            {
-              product.map((x) => <Products x={x} key={x.id}></Products>)}
+            {product.map((x) => (
+              <Products x={x} key={x.id}></Products>
+            ))}
           </Slider>
         </div>
         <div className="viewMore__btn">
           <Link className="link" to={`/product/${active}`}>
             <Button variant="contained" color="primary">
-              View More
+              View More <ArrowRightAltIcon></ArrowRightAltIcon>
             </Button>
           </Link>
         </div>

@@ -1,0 +1,35 @@
+.profile {
+  display: flex;
+  padding: 50px 10%;
+}
+.dashboard__body {
+  display: flex;
+}
+.dashboard__details {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+  min-width: 400px;
+}
+.dashboard__details > h3 {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 15px;
+}
+.dashboard__details > p {
+  display: flex;
+  align-items: center;
+  margin: 7px 0px;
+}
+.dashboard__total {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-left: 100px;
+  min-width: 400px;
+}
+.dashboard__total > h3 {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,15 @@
+.sideBar {
+  width: 300px;
+}
+.sideBar > h2 {
+  margin-bottom: 30px;
+}
+ul {
+}
+ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 15px 0px;
+}

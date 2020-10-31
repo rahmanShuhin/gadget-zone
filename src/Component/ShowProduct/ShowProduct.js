@@ -22,21 +22,18 @@ const ShowProduct = () => {
     setVal(value);
   };
   const handleSort = (e) => {
-    if(e==2){
-      const newPro=[...product];
-      newPro.sort((a,b)=>a.data.price-b.data.price)
-      setProduct(newPro)
-      
-    }
-    else if(e==3){
-      const newPro=[...product];
-      newPro.sort((a,b)=>b.data.price-a.data.price)
-      setProduct(newPro)
-    }
-    else if(e==4){
-      const newPro=[...product];
-      newPro.sort((a,b)=>b.data.discount-a.data.discount)
-      setProduct(newPro)
+    if (e == 2) {
+      const newPro = [...product];
+      newPro.sort((a, b) => a.data.price - b.data.price);
+      setProduct(newPro);
+    } else if (e == 3) {
+      const newPro = [...product];
+      newPro.sort((a, b) => b.data.price - a.data.price);
+      setProduct(newPro);
+    } else if (e == 4) {
+      const newPro = [...product];
+      newPro.sort((a, b) => b.data.discount - a.data.discount);
+      setProduct(newPro);
     }
   };
   useEffect(() => {
@@ -81,7 +78,7 @@ const ShowProduct = () => {
           )
         );
     }
-  }, []);
+  }, [id]);
   const showCategory = (x) => {
     db.collection("products")
       .where("seller", "==", x)
@@ -119,7 +116,7 @@ const ShowProduct = () => {
         <Pagination
           count={Math.ceil(product.length / 9)}
           variant="outlined"
-          shape="rounded"
+          shape="rounded"           
           onChange={handleChange}
           page={val}
         />
