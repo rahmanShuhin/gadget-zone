@@ -8,6 +8,7 @@ import firebase from "firebase";
 import search from "../../Image/search.png";
 import { UserContext } from "../Sign_In_Context";
 import { useHistory } from "react-router-dom";
+import { provider } from "../FirebaseConfig";
 const Login = () => {
   const [login, setLogin] = useState(true);
   const [vis, setVis] = useState(false);
@@ -22,14 +23,6 @@ const Login = () => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(function (res) {
-        const signUser = [
-          {
-            isSignIn: true,
-            displayName: userName,
-            email: res.user.email,
-          },
-        ];
-        setUser(signUser);
         updateUserName();
       })
       .catch(function (error) {
@@ -39,16 +32,21 @@ const Login = () => {
   };
   const updateUserName = () => {
     var user = firebase.auth().currentUser;
-
     user
       .updateProfile({
         displayName: userName,
       })
       .then(function () {
+        const signUser = {
+          isSignIn: true,
+          displayName: userName,
+          email: email,
+        };
+        setUser(signUser);
         history.goBack();
       })
       .catch(function (error) {
-        // An error happened.
+        alert(error.message);
       });
   };
   const handleSignIn = () => {
@@ -71,6 +69,17 @@ const Login = () => {
         setError(errorMessage);
       });
   };
+  const handelSignInGoogle = () => {
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(function (result) {
+        console.log(result);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   useEffect(() => {
     //console.log("ami number one");
     firebase.auth().onAuthStateChanged(function (usr) {
@@ -82,6 +91,7 @@ const Login = () => {
           displayName,
         };
         setUser(updateUser);
+        history.goBack();
       } else {
       }
     });
@@ -156,15 +166,14 @@ const Login = () => {
           </Button>
         )}
 
-        {login ? (
-          <Button variant="outlined" color="primary">
+        {login && (
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={handelSignInGoogle}
+          >
             {" "}
             <img src={search} alt="gmail" /> &nbsp;Sign In With Google
-          </Button>
-        ) : (
-          <Button variant="outlined" color="primary">
-            {" "}
-            <img src={search} alt="gmail" /> &nbsp;Sign Up With Google
           </Button>
         )}
         <div className="signUp__footer">

@@ -1,5 +1,6 @@
 .shoppingCart {
   padding: 5% 10%;
+  min-height: 80vh;
 }
 .shoppingCart > div:nth-child(1) {
   display: flex;
@@ -60,7 +61,7 @@
 }
 .shopping__cart__empty > .MuiSvgIcon-root {
   font-size: 130px;
-  color: orange;
+  color: #fb5607;
 }
 .cart__total {
   background-color: #f5f5f5;
@@ -76,9 +77,15 @@
   align-items: center;
 }
 .proceed_btn > a > button {
-  background-color: orange !important;
+  background-color: #fb5607 !important;
   color: white;
 }
 .proceed_btn > button:hover {
   opacity: 0.7;
+}
+@media only screen and (max-width: 600px) {
+  .shoppingCart {
+    padding: 5% 2%;
+    min-height: 80vh;
+  }
 }

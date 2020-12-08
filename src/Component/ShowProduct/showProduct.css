@@ -43,3 +43,12 @@
   color: white !important;
   background-color: black !important;
 }
+@media only screen and (max-width: 600px) {
+  .showProduct__middle {
+    display: block !important;
+    align-items: center;
+  }
+  .showProduct {
+    padding: 0% 5%;
+  }
+}

@@ -1,6 +1,13 @@
 .profile {
   display: flex;
-  padding: 50px 10%;
+  padding: 0px 10%;
+  min-height: 80vh;
+  background-color: #348f6c;
+}
+.dashboard {
+  background-color: white;
+  flex: 1;
+  padding: 10px 20px;
 }
 .dashboard__body {
   display: flex;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Grid, Button } from "@material-ui/core";
 import Products from "../Products/Products";
 import db from "../FirebaseConfig";
@@ -7,14 +7,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
+import axios from "../axios";
+import { AllDataContext } from "../MainContext";
 const NewArrival = () => {
-  const [product, setProducts] = useState([]);
   const [active, setActive] = useState("all");
+  const [allProduct] = useContext(AllDataContext);
+  const [origin, setOrigin] = useState([]);
   const settings = {
-    className: "center",
     dots: false,
     centerMode: false,
-    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -39,46 +40,18 @@ const NewArrival = () => {
   };
   const getProduct = (x) => {
     setActive(x);
-    if (x !== "all") {
-      db.collection("products")
-        .limit(12)
-        .where("category", "==", x)
-        .orderBy("timestamp", "desc")
-        .onSnapshot((snapshot) =>
-          setProducts(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              data: doc.data(),
-            }))
-          )
-        );
+    if (x === "all") {
+      setOrigin(allProduct);
     } else {
-      db.collection("products")
-        .limit(12)
-        .orderBy("timestamp", "desc")
-        .onSnapshot((snapshot) =>
-          setProducts(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              data: doc.data(),
-            }))
-          )
-        );
+      const tem = allProduct.filter((y) => y.category == x);
+      console.log(tem);
+      setOrigin(tem);
     }
   };
   useEffect(() => {
-    db.collection("products")
-      .limit(12)
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) =>
-        setProducts(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-      );
-  }, []);
+    setOrigin(allProduct);
+  }, [allProduct]);
+  console.log(origin);
   return (
     <div className="topSelling">
       <div className="topSelling__top">
@@ -111,9 +84,8 @@ const NewArrival = () => {
         </div>
         <div className="topSelling__product__container">
           <Slider {...settings}>
-            {product.map((x) => (
-              <Products x={x} key={x.id}></Products>
-            ))}
+            {allProduct &&
+              origin.map((x) => <Products data={x} key={x._id}></Products>)}
           </Slider>
         </div>
         <div className="viewMore__btn">

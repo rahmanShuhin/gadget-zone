@@ -1,5 +1,5 @@
 import { Button, Grid } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import db from "../FirebaseConfig";
 import Products from "../Products/Products";
 import Slider from "react-slick";
@@ -7,20 +7,31 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
+import { AllDataContext } from "../MainContext";
 const TopDells = () => {
   const [product, setProducts] = useState([]);
   const [active, setActive] = useState("all");
+  const [allProduct] = useContext(AllDataContext);
   const settings = {
     className: "center",
     dots: false,
     centerMode: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 1200,
+        settings: {
+          centerMode: true,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 780,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -31,48 +42,23 @@ const TopDells = () => {
   };
   const getProduct = (x) => {
     setActive(x);
-    if (x !== "all") {
-      db.collection("products")
-        .limit(12)
-        .where("category", "==", x)
-        .orderBy("discount", "desc")
-        .onSnapshot((snapshot) =>
-          setProducts(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              data: doc.data(),
-            }))
-          )
-        );
+    if (x === "all") {
+      const newPro = [...allProduct];
+      newPro.sort((a, b) => b.discount - a.discount);
+      setProducts(newPro);
     } else {
-      db.collection("products")
-        .where("discount", ">", 0)
-        .limit(12)
-        .orderBy("discount", "desc")
-        .onSnapshot((snapshot) =>
-          setProducts(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              data: doc.data(),
-            }))
-          )
-        );
+      const tem = allProduct.filter((y) => y.category == x);
+      tem.sort((a, b) => b.discount - a.discount);
+      setProducts(tem);
     }
   };
   useEffect(() => {
-    db.collection("products")
-      .where("discount", ">", 0)
-      .limit(12)
-      .orderBy("discount", "desc")
-      .onSnapshot((snapshot) =>
-        setProducts(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-      );
-  }, []);
+    if (allProduct.length !== 0) {
+      const newPro = [...allProduct];
+      newPro.sort((a, b) => b.discount - a.discount);
+      setProducts(newPro);
+    }
+  }, [allProduct]);
   return (
     <div className="topSelling">
       <div className="topSelling__top">
@@ -106,7 +92,7 @@ const TopDells = () => {
         <div className="topSelling__product__container">
           <Slider {...settings}>
             {product.map((x) => (
-              <Products x={x} key={x.id}></Products>
+              <Products data={x} key={x._id}></Products>
             ))}
           </Slider>
         </div>

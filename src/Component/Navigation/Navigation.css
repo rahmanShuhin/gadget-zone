@@ -17,11 +17,7 @@
   font-weight: 700;
   font-size: 30px;
 }
-.navigation__logo > a::after {
-  content: " Zone";
-  font-size: 30px;
-  color: gold;
-}
+
 .navigation__top > div {
   width: 400px;
   display: flex;
@@ -37,6 +33,8 @@
   color: white;
   height: 8vh;
   box-shadow: 2px 2px 5px black;
+  position: sticky;
+  top: 0px;
 }
 
 .navigation__cart {
@@ -61,4 +59,20 @@
   border: 1px solid gray;
   border-radius: 100px;
   color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .navigation__menu {
+    padding: 0% 0%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .navigation__cart {
+    position: fixed;
+    bottom: 0px;
+    z-index: 100 !important;
+    background-color: #30343f;
+    width: 100%;
+    padding: 10px 0px;
+  }
 }

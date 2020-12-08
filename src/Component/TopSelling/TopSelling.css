@@ -1,6 +1,6 @@
 .topSelling__top {
   text-align: center;
-  padding: 60px 0px;
+  padding: 100px 0px;
 }
 .topSelling__top > h2 {
   font-size: 40px;
@@ -148,26 +148,46 @@
 }
 .topSelling_catagories > button:hover::after {
   content: "";
-  height: 3px;
+  height: 1px;
   left: 50%;
   width: 10%;
   transform: translateX(-50%);
   position: absolute;
-  background-color: black;
+  background-color: #fb5607;
   bottom: -10px;
 }
 .active_btn::after {
   content: "";
-  height: 3px;
+  height: 1px;
   left: 50%;
   width: 30%;
   transform: translateX(-50%);
   position: absolute;
-  background-color: black;
+  background-color: #fb5607;
   bottom: -10px;
 }
+
 @media only screen and (max-width: 600px) {
   .topSelling__product__container {
     padding: 10px 25px;
+  }
+  .topBrand {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 2rem;
+    padding: 10px 10%;
+  }
+  .topBrand > div {
+    z-index: 1;
+  }
+  .topBrand > div:nth-child(1) {
+    height: 300px;
+  }
+  .topBrand > div:nth-child(1) > .topBrand__caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

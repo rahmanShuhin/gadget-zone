@@ -7,21 +7,12 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import { Link } from "react-router-dom";
 import "./ShoppingCart.css";
+import { AllDataContext } from "../MainContext";
 const ShoppingCart = () => {
   const [cart, setCart] = useContext(CartContext);
   const [total, setTotal] = useState(0);
-  const [products, setProducts] = useState([]);
+  const [allProduct] = useContext(AllDataContext);
   useEffect(() => {
-    db.collection("products")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) =>
-        setProducts(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-      );
     let taka = 0;
     cart.map((x) => {
       taka =
@@ -45,9 +36,9 @@ const ShoppingCart = () => {
       {cart.length !== 0 && (
         <div>
           <h2>My Cart ({cart.length})</h2>
-          <Button variant="outlined" color="primary">
+          <Link to="/" variant="outlined" color="primary">
             Continue Shopping
-          </Button>
+          </Link>
         </div>
       )}
       {cart.length === 0 ? (
@@ -75,7 +66,7 @@ const ShoppingCart = () => {
           quantity={x.quantity}
           price={x.price}
           discount={x.discount}
-          products={products}
+          products={allProduct}
         ></CartItem>
       ))}
       {cart.length !== 0 && (

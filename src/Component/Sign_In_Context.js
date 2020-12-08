@@ -5,7 +5,6 @@ export const UserContext = createContext();
 export const Sign_In_Context = (props) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
-    //console.log("ami number one");
     firebase.auth().onAuthStateChanged(function (usr) {
       if (usr) {
         const { email, displayName } = usr;

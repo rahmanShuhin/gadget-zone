@@ -7,7 +7,7 @@ import { Button } from "@material-ui/core";
 const CartItem = (props) => {
   const [cart, setCart] = useContext(CartContext);
   const { id, products, quantity, price, discount } = props;
-  const arr = products?.find((x) => x.id === id);
+  const arr = products?.find((x) => x._id === id);
   console.log(arr);
   const removeQuantity = () => {
     const newCart = [...cart];
@@ -42,8 +42,8 @@ const CartItem = (props) => {
   return (
     <div className="cart__grid__container">
       <div>
-        <img src={arr?.data.img} alt="" />
-        <p>{arr?.data.name}</p>
+        <img src={arr?.img} alt="" />
+        <p>{arr?.name}</p>
       </div>
       <div>
         <div className="cart_plus_minus">
@@ -56,12 +56,11 @@ const CartItem = (props) => {
       </div>
 
       <div>
-        Tk. {Math.round(price * 85 - price * 85 * (arr?.data.discount / 100))}
+        Tk. {Math.round(price * 85 - price * 85 * (arr?.discount / 100))}
       </div>
       <div>
         Tk.{" "}
-        {Math.round(price * 85 - price * 85 * (arr?.data.discount / 100)) *
-          quantity}
+        {Math.round(price * 85 - price * 85 * (arr?.discount / 100)) * quantity}
       </div>
       <div>
         <Button color="secondary" variant="outlined" onClick={handleRemove}>

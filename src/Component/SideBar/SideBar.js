@@ -6,7 +6,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import firebase from "firebase";
-const SideBar = () => {
+const SideBar = ({ init }) => {
   let history = useHistory();
   const handleSignOut = () => {
     firebase
@@ -19,17 +19,32 @@ const SideBar = () => {
         // An error happened.
       });
   };
+  const handleActive = (e) => {
+    document.getElementById(e).classList.add("pushActive");
+    history.push(`/${e}`);
+    if (e !== "order") {
+      document.getElementById("order").classList.remove("pushActive");
+    }
+
+    if (e !== "dashboard") {
+      document.getElementById("dashboard").classList.remove("pushActive");
+    }
+  };
   return (
     <div className="sideBar">
       <h2>My Account</h2>
       <ul>
         <li>
           <DashboardIcon></DashboardIcon>
-          <Button onClick={() => history.push("/dashboard")}>Dashboard</Button>
+          <span id="dashboard" className={init && "pushActive"}>
+            <Button onClick={() => handleActive("dashboard")}>Dashboard</Button>
+          </span>
         </li>
         <li>
           <ShoppingBasketIcon></ShoppingBasketIcon>
-          <Button onClick={() => history.push("/order")}>My Orders</Button>
+          <span id="order" className={!init && "pushActive"}>
+            <Button onClick={() => handleActive("order")}>My Orders</Button>
+          </span>
         </li>
         <li>
           <ExitToAppIcon></ExitToAppIcon>

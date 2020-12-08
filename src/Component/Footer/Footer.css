@@ -1,4 +1,28 @@
 .footer {
-  background: black;
+  background: #30343f;
   height: 300px;
+  color: white;
+}
+.footer__top {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  justify-content: space-around;
+}
+.footer__top > img {
+  object-fit: cover;
+}
+.footer__top > h3 {
+  color: lightgray;
+}
+.footer__bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+.footer__bottom > div > h3 {
+  color: white;
+  margin-bottom: 10px;
 }

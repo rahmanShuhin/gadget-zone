@@ -1,0 +1,133 @@
+/*admin login*/
+.adminLogin {
+  display: grid;
+  place-items: center;
+  min-height: 80vh;
+}
+.adminLogin > form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.adminLogin > form > input {
+  outline: none;
+  border: 1px solid lightgray;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.admin {
+  min-height: 80vh;
+  padding: 0px 10%;
+  display: flex;
+  background-color: #348f6c;
+}
+.adminDashboard {
+  flex: 1;
+  background-color: white;
+}
+.adminDashboard > div {
+  margin-top: 0px;
+}
+.adminDashboard > div > div {
+  padding: 20px 10%;
+}
+.adminDashboard > div > div > div {
+  min-height: 200px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  color: white;
+  background-color: #348f6c;
+}
+.adminDashboard > div > div > div > h3 {
+  font-weight: 900;
+  font-size: 100px;
+  color: whitesmoke;
+  animation: h3-dance 1s 2s;
+}
+.adminDashboard > div > div > div > h2 {
+  color: white;
+}
+
+/*create product*/
+.createProduct {
+  flex: 1;
+  background-color: white;
+  display: grid;
+  place-items: center;
+}
+.createProduct > form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.createProduct > form > input,
+.createProduct > form > select {
+  outline: none;
+  border: 1px solid lightgray;
+  margin: 10px 0px;
+  padding: 10px;
+}
+.createProduct > form > span {
+  color: red;
+}
+progress {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.spinner {
+  display: grid;
+  place-items: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr > td > img {
+  width: 50px;
+}
+.modal {
+  background-color: white;
+  width: 50%;
+  min-height: 50vh;
+  outline: none;
+  display: grid;
+  place-items: center;
+  padding: 10px 20px;
+}
+.modal > div {
+  text-align: center;
+}
+.modal > div > img {
+  width: 200px;
+}
+.modal > div > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.modal > div > form > input {
+  padding: 10px;
+  outline: none;
+  border: 1px solid lightgray;
+}
+.modal > div > form > button {
+  margin-top: 10px;
+}
+.spinner_load {
+  margin-top: 10px;
+}

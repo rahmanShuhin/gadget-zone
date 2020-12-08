@@ -6,21 +6,11 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import { CartContext } from "../Data_Context";
 import { UserContext } from "../Sign_In_Context";
+import gadget_logo from "../../Image/gadget_logo.png";
 const Navigation = () => {
   const [cart, setCart] = useContext(CartContext);
   const [user, setUser] = useContext(UserContext);
-  window.onscroll = function () {
-    myFunction();
-  };
 
-  function myFunction() {
-    var navbar = document.getElementById("navbar");
-    if (window.pageYOffset >= 1) {
-      navbar.classList.add("sticky");
-    } else {
-      navbar.classList.remove("sticky");
-    }
-  }
   return (
     <div className="navigation">
       <div className="navigation__top">
@@ -39,7 +29,7 @@ const Navigation = () => {
       <div className="navigation__menu" id="navbar">
         <div className="navigation__logo">
           <Link to="/" className="link">
-            Gadget
+            <img src={gadget_logo} alt="" />
           </Link>
         </div>
 
@@ -52,16 +42,25 @@ const Navigation = () => {
               </Badge>
             </p>
           </Link>
-          <Link className="link" to={user ? "/dashboard" : "/login"}>
-            <p>
-              {!user ? (
-                <span>Sign In &nbsp;</span>
-              ) : (
-                <span>My Account &nbsp;</span>
-              )}
-              <AccountCircleOutlinedIcon></AccountCircleOutlinedIcon>
-            </p>
-          </Link>
+          {user?.email !== "suhin4000@gmail.com" && (
+            <Link className="link" to={user ? "/dashboard" : "/login"}>
+              <p>
+                {!user ? (
+                  <span>Sign In &nbsp;</span>
+                ) : (
+                  <span>My Account &nbsp;</span>
+                )}
+                <AccountCircleOutlinedIcon></AccountCircleOutlinedIcon>
+              </p>
+            </Link>
+          )}
+          {user?.email === "suhin4000@gmail.com" && (
+            <Link className="link" to="/admin">
+              <Button variant="contained" color="secondary">
+                Admin
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

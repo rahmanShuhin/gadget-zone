@@ -1,8 +1,13 @@
 .sideBar {
   width: 300px;
+  background-color: #348f6c;
+  border-radius: 5px;
+  color: #e2c992 !important;
 }
 .sideBar > h2 {
   margin-bottom: 30px;
+  color: #e2c992;
+  margin: 10px;
 }
 ul {
 }
@@ -12,4 +17,23 @@ ul li {
   align-items: center;
   justify-content: flex-start;
   margin: 15px 0px;
+}
+ul > li > .MuiSvgIcon-root {
+  margin: 0px 10px;
+}
+ul > li > span {
+  flex: 1;
+  border-top-left-radius: 10px;
+}
+ul > li > span > button {
+  color: white !important;
+}
+.pushActive {
+  background-color: white !important;
+}
+.pushActive > button {
+  color: black !important;
+}
+.sideBar > ul > li > button {
+  color: white;
 }
