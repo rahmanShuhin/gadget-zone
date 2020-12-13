@@ -17,13 +17,13 @@ const Admin = () => {
     setAdminStep(i);
   };
   useEffect(() => {
-    if (user?.email !== "suhin4000@gmail.com") {
+    if (user?.email !== "sohi4000@gmail.com") {
       history.push("/");
     }
   }, [user]);
   return (
     <>
-      {user?.email === "suhin4000@gmail.com" && (
+      {user?.email === "sohi4000@gmail.com" && (
         <div className="admin">
           <AdminSidebar handleStep={handleStep}></AdminSidebar>
           {adminStep === 1 && <AdminDashboard></AdminDashboard>}

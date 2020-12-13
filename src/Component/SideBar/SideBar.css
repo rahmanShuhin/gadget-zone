@@ -1,6 +1,6 @@
 .sideBar {
   width: 300px;
-  background-color: #348f6c;
+  /* background-color: #348f6c; */
   border-radius: 5px;
   color: #e2c992 !important;
 }
@@ -36,6 +36,11 @@ ul > li > span > button {
 }
 .sideBar > ul > li > button {
   color: white;
+}
+@media only screen and (max-width: 768px) {
+  .sideBar {
+    width: 200px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .sideBar {

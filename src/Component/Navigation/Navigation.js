@@ -42,7 +42,7 @@ const Navigation = () => {
               </Badge>
             </p>
           </Link>
-          {user?.email !== "suhin4000@gmail.com" && (
+          {user?.email !== "sohi4000@gmail.com" && (
             <Link className="link" to={user ? "/dashboard" : "/login"}>
               <p>
                 {!user ? (
@@ -54,7 +54,7 @@ const Navigation = () => {
               </p>
             </Link>
           )}
-          {user?.email === "suhin4000@gmail.com" && (
+          {user?.email === "sohi4000@gmail.com" && (
             <Link className="link" to="/admin">
               <Button variant="contained" color="secondary">
                 Admin
