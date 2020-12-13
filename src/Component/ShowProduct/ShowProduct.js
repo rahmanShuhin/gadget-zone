@@ -6,6 +6,7 @@ import db from "../FirebaseConfig";
 import { AllDataContext } from "../MainContext";
 import Products from "../Products/Products";
 import "./showProduct.css";
+import SearchIcon from "@material-ui/icons/Search";
 const ShowProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
@@ -13,6 +14,7 @@ const ShowProduct = () => {
   const [category, setCategory] = useState([]);
   const [allProduct] = useContext(AllDataContext);
   const sort = ["default", "asc", "desc", "percentage"];
+  const [input, setInput] = useState("");
   const [showProduct, setShowProduct] = useState(() => {
     if (product.length !== 0) {
       return product;
@@ -46,6 +48,8 @@ const ShowProduct = () => {
       //console.log(num1, num2);
       const temp = product.slice(num1, num2);
       setShowProduct(temp);
+    } else {
+      setShowProduct([]);
     }
   }, [product, val]);
 
@@ -57,10 +61,41 @@ const ShowProduct = () => {
       setProduct(arr);
     }
   }, [id, allProduct]);
-
+  const handleSearch = () => {
+    if (input.length !== 0) {
+      const newArr = product.filter((x) => {
+        let na = x.name.toLowerCase();
+        let inp = input.toLowerCase();
+        if (na.search(inp) !== -1) {
+          return x;
+        }
+      });
+      setProduct(newArr);
+    } else {
+      if (id === "all") {
+        setProduct(allProduct);
+      } else {
+        const arr = allProduct.filter((x) => x.category === id);
+        setProduct(arr);
+      }
+    }
+  };
   //console.log(product)
   return (
     <div className="showProduct">
+      <div className="wrap">
+        <div className="search">
+          <input
+            type="text"
+            className="searchTerm"
+            placeholder="What are you looking for?"
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button type="submit" className="searchButton" onClick={handleSearch}>
+            <SearchIcon></SearchIcon>
+          </button>
+        </div>
+      </div>
       <div className="showProduct__top">
         <h3>{id} Gadget </h3>
         <p>{product.length} Results</p>

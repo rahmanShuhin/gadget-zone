@@ -18,7 +18,9 @@ import nikon_camera from "../../Image/nikon_camera.png";
 import canon_camera from "../../Image/canon_camera.png";
 import sony_camera from "../../Image/sony_camera.png";
 import AppleIcon from "@material-ui/icons/Apple";
+import { useHistory } from "react-router-dom";
 const TopSelling = () => {
+  let history = useHistory();
   const [active, setActive] = useState({
     mobile: true,
     laptop: false,
@@ -78,7 +80,12 @@ const TopSelling = () => {
               <div className="topBrand__caption">
                 <h2>Samsung Galaxy</h2>
                 <small>Lorem ipsum dolor sit amet </small>
-                <button className="shopNow__btn">Shop now</button>
+                <button
+                  className="shopNow__btn"
+                  onClick={() => history.push("/product/android")}
+                >
+                  Shop now
+                </button>
               </div>
             </div>
             <div>
@@ -89,7 +96,12 @@ const TopSelling = () => {
                     Apple Iphone <AppleIcon></AppleIcon>{" "}
                   </h4>
                   <small>Lorem ipsum dolor sit amet </small>
-                  <button className="shopNow__btn">Shop now</button>
+                  <button
+                    className="shopNow__btn"
+                    onClick={() => history.push("/product/android")}
+                  >
+                    Shop now
+                  </button>
                 </div>
               </div>
               <div>
@@ -97,7 +109,12 @@ const TopSelling = () => {
                 <div className="topBrand__caption">
                   <h4>Huawei max pro</h4>
                   <small>Lorem ipsum dolor sit amet </small>
-                  <button className="shopNow__btn">Shop now</button>
+                  <button
+                    className="shopNow__btn"
+                    onClick={() => history.push("/product/android")}
+                  >
+                    Shop now
+                  </button>
                 </div>
               </div>
             </div>
@@ -111,7 +128,12 @@ const TopSelling = () => {
               <div className="topBrand__caption">
                 <h2>HP OMEN X</h2>
                 <small>Lorem ipsum dolor sit amet </small>
-                <button className="shopNow__btn">Shop now</button>
+                <button
+                  className="shopNow__btn"
+                  onClick={() => history.push("/product/laptop")}
+                >
+                  Shop now
+                </button>
               </div>
             </div>
             <div>
@@ -120,7 +142,12 @@ const TopSelling = () => {
                 <div className="topBrand__caption">
                   <h4>Dell New XPS 15 Laptop</h4>
                   <small>Lorem ipsum dolor sit amet </small>
-                  <button className="shopNow__btn">Shop now</button>
+                  <button
+                    className="shopNow__btn"
+                    onClick={() => history.push("/product/laptop")}
+                  >
+                    Shop now
+                  </button>
                 </div>
               </div>
               <div>
@@ -128,7 +155,12 @@ const TopSelling = () => {
                 <div className="topBrand__caption">
                   <h4>MSI Evolve GF63</h4>
                   <small>Lorem ipsum dolor sit amet </small>
-                  <button className="shopNow__btn">Shop now</button>
+                  <button
+                    className="shopNow__btn"
+                    onClick={() => history.push("/product/laptop")}
+                  >
+                    Shop now
+                  </button>
                 </div>
               </div>
             </div>
@@ -142,7 +174,12 @@ const TopSelling = () => {
               <div className="topBrand__caption">
                 <h2>Nikon D850 36.3MP</h2>
                 <small>Lorem ipsum dolor sit amet </small>
-                <button className="shopNow__btn">Shop now</button>
+                <button
+                  className="shopNow__btn"
+                  onClick={() => history.push("/product/camera")}
+                >
+                  Shop now
+                </button>
               </div>
             </div>
             <div>
@@ -151,7 +188,12 @@ const TopSelling = () => {
                 <div className="topBrand__caption">
                   <h4>Canon EOS Rebel SL3</h4>
                   <small>Lorem ipsum dolor sit amet </small>
-                  <button className="shopNow__btn">Shop now</button>
+                  <button
+                    className="shopNow__btn"
+                    onClick={() => history.push("/product/camera")}
+                  >
+                    Shop now
+                  </button>
                 </div>
               </div>
               <div>
@@ -159,7 +201,12 @@ const TopSelling = () => {
                 <div className="topBrand__caption">
                   <h4>Sony A7R Mark IV</h4>
                   <small>Lorem ipsum dolor sit amet </small>
-                  <button className="shopNow__btn">Shop now</button>
+                  <button
+                    className="shopNow__btn"
+                    onClick={() => history.push("/product/camera")}
+                  >
+                    Shop now
+                  </button>
                 </div>
               </div>
             </div>

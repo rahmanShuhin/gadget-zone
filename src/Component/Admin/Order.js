@@ -8,7 +8,7 @@ const Order = () => {
     const newArr = allOrder.map((x) => {
       if (x._id === id) {
         x.status = e.target.value;
-        fetch(`http://localhost:5000/update/order/${id}`, {
+        fetch(`https://nameless-lake-62164.herokuapp.com/update/order/${id}`, {
           method: "PATCH",
           body: JSON.stringify({
             status: e.target.value,

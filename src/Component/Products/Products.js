@@ -66,7 +66,7 @@ const Products = ({ data, key }) => {
         </div>
         <div className="products__card__bottom">
           <small>{category}</small>
-          <small>{name}</small>
+          <p>{name}</p>
           {discount > 0 ? (
             <p>
               <small>

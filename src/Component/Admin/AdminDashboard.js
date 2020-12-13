@@ -4,12 +4,13 @@ import { Card, Grid, Modal, Snackbar } from "@material-ui/core";
 import { AllDataContext } from "../MainContext";
 import TableData from "./TableData";
 import { AllOrderContext } from "../OrderContext";
-
+import SearchIcon from "@material-ui/icons/Search";
 const AdminDashboard = () => {
   const [allProduct, setAllProduct] = useContext(AllDataContext);
   const [allOrder, setAllOrder] = useContext(AllOrderContext);
+  const [product, setProduct] = useState(allProduct);
   const [order, setOrder] = useState([]);
-
+  const [input, setInput] = useState("");
   const handleUpdate = (id, price, dis) => {
     const newarr = allProduct.map((x) => {
       if (x._id === id) {
@@ -26,6 +27,20 @@ const AdminDashboard = () => {
     const newArr = allProduct.filter((x) => x._id !== id);
     setAllProduct(newArr);
   };
+  const handleSearch = () => {
+    if (input.length !== 0) {
+      const newArr = allProduct.filter((x) => {
+        let na = x.name.toLowerCase();
+        let inp = input.toLowerCase();
+        if (na.search(inp) !== -1) {
+          return x;
+        }
+      });
+      setProduct(newArr);
+    } else {
+      setProduct(allProduct);
+    }
+  };
   return (
     <div className="adminDashboard">
       <Grid container>
@@ -41,24 +56,33 @@ const AdminDashboard = () => {
             <h3>{allOrder.length}</h3>
           </Card>
         </Grid>
-        <table>
-          <tr>
-            <th>Pro. Name</th>
-            <th>Image</th>
-            <th>Price</th>
-            <th>Discount</th>
-            <th>Update</th>
-            <th>Delete</th>
-          </tr>
-          {allProduct.map((x) => (
-            <TableData
-              data={x}
-              del={handleDelete}
-              upd={handleUpdate}
-            ></TableData>
-          ))}
-        </table>
       </Grid>
+      <div className="wrap">
+        <div className="search">
+          <input
+            type="text"
+            className="searchTerm"
+            placeholder="Search By Product Name"
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button type="submit" className="searchButton" onClick={handleSearch}>
+            <SearchIcon></SearchIcon>
+          </button>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <th>Pro. Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Discount</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        {product.map((x) => (
+          <TableData data={x} del={handleDelete} upd={handleUpdate}></TableData>
+        ))}
+      </table>
     </div>
   );
 };

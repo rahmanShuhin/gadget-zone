@@ -61,13 +61,22 @@ const ShoppingCart = () => {
         </div>
       )}
       {cart.map((x) => (
-        <CartItem
-          id={x.id}
-          quantity={x.quantity}
-          price={x.price}
-          discount={x.discount}
-          products={allProduct}
-        ></CartItem>
+        <div className="shoppingCart__grid__container__mobile">
+          <div>
+            <div>Product</div>
+            <div>Quantity</div>
+            <div>Unit Price</div>
+            <div>SubTotal</div>
+            <div>Remove</div>
+          </div>
+          <CartItem
+            id={x.id}
+            quantity={x.quantity}
+            price={x.price}
+            discount={x.discount}
+            products={allProduct}
+          ></CartItem>
+        </div>
       ))}
       {cart.length !== 0 && (
         <div>

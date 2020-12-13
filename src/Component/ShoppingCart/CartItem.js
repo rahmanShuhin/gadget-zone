@@ -43,7 +43,7 @@ const CartItem = (props) => {
     <div className="cart__grid__container">
       <div>
         <img src={arr?.img} alt="" />
-        <p>{arr?.name}</p>
+        <small>{arr?.name}</small>
       </div>
       <div>
         <div className="cart_plus_minus">

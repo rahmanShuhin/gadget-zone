@@ -4,7 +4,7 @@ export const AllOrderContext = createContext();
 export const OrderContext = (props) => {
   const [allOrder, setAllOrder] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/order")
+    fetch("https://nameless-lake-62164.herokuapp.com/order")
       .then((response) => response.json())
       .then((data) => {
         setAllOrder(data);

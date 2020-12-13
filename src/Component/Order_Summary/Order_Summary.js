@@ -41,7 +41,7 @@ const Order_Summary = ({ pay, cash, ste_p, setForm, form_data, step }) => {
     ste_p(3);
     setCart([]);
     setSpin(false);
-    fetch("http://localhost:5000/post/order", {
+    fetch("https://nameless-lake-62164.herokuapp.com/post/order", {
       method: "POST",
       body: JSON.stringify(form_data),
       headers: {
@@ -66,7 +66,7 @@ const Order_Summary = ({ pay, cash, ste_p, setForm, form_data, step }) => {
     form_data.status = "pending";
     form_data.date = new Date().toDateString();
     console.log(form_data);
-    fetch("http://localhost:5000/post/order", {
+    fetch("https://nameless-lake-62164.herokuapp.com/post/order", {
       method: "POST",
       body: JSON.stringify(form_data),
       headers: {

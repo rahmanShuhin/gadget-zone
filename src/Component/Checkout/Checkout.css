@@ -36,3 +36,11 @@
   font-weight: 300;
   color: white;
 }
+@media only screen and (max-width: 768px) {
+  .checkout {
+    padding: 50px 1%;
+    min-height: 80vh;
+  }
+}
+@media only screen and (max-width: 600px) {
+}

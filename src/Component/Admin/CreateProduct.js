@@ -68,7 +68,7 @@ const CreateProduct = () => {
               data.img = url;
 
               //post to database
-              fetch("http://localhost:5000/post/product", {
+              fetch("https://nameless-lake-62164.herokuapp.com/post/product", {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {

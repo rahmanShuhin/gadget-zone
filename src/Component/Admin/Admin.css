@@ -29,7 +29,7 @@
 .adminDashboard > div {
   margin-top: 0px;
 }
-.adminDashboard > div > div {
+.adminDashboard > div > div:not(:nth-child(3)) {
   padding: 20px 10%;
 }
 .adminDashboard > div > div > div {

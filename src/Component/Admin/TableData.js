@@ -24,7 +24,7 @@ function Alert(props) {
 const TableData = ({ data, del, upd }) => {
   const handleDel = () => {
     setSpin(true);
-    fetch(`http://localhost:5000/delete/${data._id}`, {
+    fetch(`https://nameless-lake-62164.herokuapp.com/delete/${data._id}`, {
       method: "DELETE",
     })
       .then((response) => response.text())
@@ -44,13 +44,16 @@ const TableData = ({ data, del, upd }) => {
     dat.price = parseFloat(dat.price) / 85;
     dat.discount = parseFloat(dat.discount);
     console.log(data);
-    fetch(`http://localhost:5000/update/product/${data._id}`, {
-      method: "PATCH",
-      body: JSON.stringify(dat),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
+    fetch(
+      `https://nameless-lake-62164.herokuapp.com/update/product/${data._id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(dat),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    )
       .then((response) => response.text())
       .then((json) => {
         setSpin(false);

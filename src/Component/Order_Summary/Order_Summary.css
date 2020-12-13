@@ -56,3 +56,9 @@
 .paypal-button-color-gold {
   background-color: orange;
 }
+
+@media only screen and (max-width: 600px) {
+  .order__summary {
+    margin: 0px !important;
+  }
+}

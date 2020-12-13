@@ -153,18 +153,18 @@
   width: 10%;
   transform: translateX(-50%);
   position: absolute;
-  background-color: #fb5607;
-  bottom: -10px;
+  background-color: #f5c400;
+  bottom: -5px;
 }
 .active_btn::after {
   content: "";
-  height: 1px;
+  height: 120%;
   left: 50%;
-  width: 30%;
+  width: 80%;
   transform: translateX(-50%);
   position: absolute;
-  background-color: #fb5607;
-  bottom: -10px;
+  border-bottom: 2px solid #f5c400;
+  bottom: -5px;
 }
 
 @media only screen and (max-width: 600px) {
