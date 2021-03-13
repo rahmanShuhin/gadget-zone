@@ -74,6 +74,7 @@ const ShoppingCart = () => {
             quantity={x.quantity}
             price={x.price}
             discount={x.discount}
+            stock={x.stock}
             products={allProduct}
           ></CartItem>
         </div>

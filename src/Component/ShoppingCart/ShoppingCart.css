@@ -39,6 +39,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+.btn_double {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn_double button {
+  margin: 0px 5px;
+  padding: 10px;
+  border: 1px solid black;
+  background: none;
+  font-weight: bold;
 }
 .cart__grid__container > div > img {
   width: 10%;
@@ -51,6 +64,12 @@
   padding: 10px 0px;
   border: 1px solid gray;
   width: 100%;
+}
+.cart_plus_minus input {
+  width: fit-content;
+  max-width: 100px;
+  height: 30px;
+  outline: none;
 }
 .cart_plus_minus > .MuiSvgIcon-root {
   cursor: pointer;

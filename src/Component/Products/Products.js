@@ -13,7 +13,7 @@ function Alert(props) {
 const Products = ({ data, key }) => {
   const [cart, setCart] = useContext(CartContext);
   const [open, setOpen] = React.useState(false);
-  const { name, img, price, category, discount, _id } = data;
+  const { name, img, price, category, discount, _id, stock } = data;
   const [added, setAdded] = useState(false);
   const id = key;
   const handleClose = (event, reason) => {
@@ -34,6 +34,7 @@ const Products = ({ data, key }) => {
       discount: discount,
       img: img,
       name: name,
+      stock: stock,
     };
     setCart([...cart, newCart]);
   };
@@ -66,6 +67,7 @@ const Products = ({ data, key }) => {
         </div>
         <div className="products__card__bottom">
           <small>{category}</small>
+          <p>Stock :{stock}</p>
           <p>{name}</p>
           {discount > 0 ? (
             <p>
