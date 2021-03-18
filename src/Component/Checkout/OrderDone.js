@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PaymentOutlinedIcon from "@material-ui/icons/PaymentOutlined";
 import { Checkbox } from "@material-ui/core";
 import { Link } from "react-router-dom";
 const OrderDone = ({ orderForm }) => {
+  useEffect(() => {
+    orderForm.items.map((x) => {
+      fetch(`https://nameless-lake-62164.herokuapp.com/update/stock/${x.id}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          stock: x.stock,
+          quantity: x.quantity,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.text())
+        .then((json) => console.log(json));
+    });
+  }, []);
   return (
     <div className="payment__method">
       <div>
