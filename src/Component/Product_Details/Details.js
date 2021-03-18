@@ -23,6 +23,7 @@ const Details = () => {
       quantity: 1,
       price: pro.price,
       discount: pro.discount,
+      stock: pro.stock,
       img: pro.img,
       name: pro.name,
     };
