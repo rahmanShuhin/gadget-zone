@@ -51,7 +51,7 @@ const Checkout = () => {
               handlePay={handlePay}
             ></Payment_Method>
           )}
-          {step === 3 && <OrderDone></OrderDone>}
+          {step === 3 && <OrderDone orderForm={orderForm}></OrderDone>}
         </Grid>
         <Grid item xs={12} sm={7}>
           {step !== 3 && (

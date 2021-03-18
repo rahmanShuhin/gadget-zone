@@ -37,6 +37,17 @@
   font-weight: bold;
   margin-top: 15px;
 }
+.stock__out {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  color: #f5c400;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.821);
+  padding: 10px;
+  width: 100%;
+}
 .discount__box {
   background: #f5c400;
   color: black;

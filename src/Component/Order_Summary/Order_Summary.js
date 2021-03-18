@@ -138,7 +138,7 @@ const Order_Summary = ({ pay, cash, ste_p, setForm, form_data, step }) => {
             ) : (
               <button disabled>Confirm Order</button>
             ))}
-          {pay && (
+          {pay && total !== 0 && (
             <PaypalExpressBtn
               env={env}
               client={client}

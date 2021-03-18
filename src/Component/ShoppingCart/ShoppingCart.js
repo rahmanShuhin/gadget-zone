@@ -84,14 +84,16 @@ const ShoppingCart = () => {
           <div className="cart__total">
             <h2>Cart Total: Tk. {total}</h2>
           </div>
-          <div className="proceed_btn">
-            <Link className="link" to="/checkout">
-              <Button>
-                Proceed To Checkout &nbsp;
-                <LocalShippingIcon></LocalShippingIcon>
-              </Button>
-            </Link>
-          </div>
+          {total !== 0 && (
+            <div className="proceed_btn">
+              <Link className="link" to="/checkout">
+                <Button disabled={total == 0}>
+                  Proceed To Checkout &nbsp;
+                  <LocalShippingIcon></LocalShippingIcon>
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </div>

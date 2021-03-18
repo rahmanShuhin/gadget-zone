@@ -62,6 +62,11 @@ const Products = ({ data, key }) => {
             <p>{discount}% off </p>
           </div>
         )}
+        {stock === 0 && (
+          <div className="stock__out">
+            <p>Product stock out</p>
+          </div>
+        )}
         <div className="img__container">
           <img src={img} alt={img} />
         </div>
@@ -82,27 +87,29 @@ const Products = ({ data, key }) => {
             <p>Tk. {Math.round(price * 85)}</p>
           )}
         </div>
-        <div className="add__cart__button">
-          {!added ? (
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={(e) => handleAdd(e)}
-            >
-              <AddShoppingCartIcon></AddShoppingCartIcon>
-              Add To Cart
-            </Button>
-          ) : (
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={(e) => handleRemove(e)}
-            >
-              <CheckCircleIcon></CheckCircleIcon>
-              Item Added
-            </Button>
-          )}
-        </div>
+        {stock !== 0 && (
+          <div className="add__cart__button">
+            {!added ? (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={(e) => handleAdd(e)}
+              >
+                <AddShoppingCartIcon></AddShoppingCartIcon>
+                Add To Cart
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={(e) => handleRemove(e)}
+              >
+                <CheckCircleIcon></CheckCircleIcon>
+                Item Added
+              </Button>
+            )}
+          </div>
+        )}
         <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert onClose={handleClose} severity="success">
             Product Added To Cart

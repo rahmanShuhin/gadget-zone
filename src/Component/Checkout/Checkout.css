@@ -36,6 +36,28 @@
   font-weight: 300;
   color: white;
 }
+
+.order_voucher {
+  border: 2px dotted black;
+  margin: 20px 0px;
+  background-color: white;
+  padding: 10px;
+}
+.order_voucher > div:nth-child(1) {
+  display: flex;
+  margin-bottom: 20px;
+}
+.order_voucher > div:nth-child(4) {
+  display: flex;
+  margin-top: 20px;
+}
+.order_voucher > div:nth-child(2),
+.order_voucher > div:nth-child(3) > div {
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+}
+
 @media only screen and (max-width: 768px) {
   .checkout {
     padding: 50px 1%;

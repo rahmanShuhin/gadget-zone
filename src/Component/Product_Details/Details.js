@@ -83,24 +83,26 @@ const Details = () => {
                 </div>
               ))}
             </div>
-            <div className="details_Button">
-              {!added ? (
-                <Button variant="contained" onClick={handleAdd}>
-                  <AddShoppingCartIcon></AddShoppingCartIcon>
-                  Add To Cart
-                </Button>
-              ) : (
-                <Button variant="contained" onClick={handleRemove}>
-                  <CheckCircleIcon></CheckCircleIcon>
-                  Item Added
-                </Button>
-              )}
-              {added && (
-                <Link className="link" to="/cart">
-                  <Button>Go To Cart</Button>
-                </Link>
-              )}
-            </div>
+            {pro?.stock !== 0 && (
+              <div className="details_Button">
+                {!added ? (
+                  <Button variant="contained" onClick={handleAdd}>
+                    <AddShoppingCartIcon></AddShoppingCartIcon>
+                    Add To Cart
+                  </Button>
+                ) : (
+                  <Button variant="contained" onClick={handleRemove}>
+                    <CheckCircleIcon></CheckCircleIcon>
+                    Item Added
+                  </Button>
+                )}
+                {added && (
+                  <Link className="link" to="/cart">
+                    <Button>Go To Cart</Button>
+                  </Link>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

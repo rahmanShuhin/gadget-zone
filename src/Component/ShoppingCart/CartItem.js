@@ -12,10 +12,10 @@ const CartItem = (props) => {
   console.log(arr);
   const removeQuantity = () => {
     const newCart = [...cart];
-    setQt(quantity - 1);
     const tem = newCart.map((x) => {
       if (x.id === id) {
         if (x.quantity !== 0) {
+          setQt(quantity - 1);
           x.quantity = quantity - 1;
         }
         return x;

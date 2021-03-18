@@ -21,7 +21,61 @@ const Routing = () => {
   const [allProduct] = useContext(AllDataContext);
   return (
     <>
-      {allProduct.length !== 0 ? (
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Navigation></Navigation>
+            <Slider></Slider>
+            <TopSelling></TopSelling>
+            <Advertise__1></Advertise__1>
+            <TopDells></TopDells>
+            <NewArrival></NewArrival>
+            <Advertise__1></Advertise__1>
+            <Footer></Footer>
+          </Route>
+          <Route exact path="/product/:id">
+            <Navigation></Navigation>
+            <ShowProduct></ShowProduct>
+            <Footer></Footer>
+          </Route>
+          <Route exact path="/login">
+            <Navigation></Navigation>
+            <Login></Login>
+            <Footer></Footer>
+          </Route>
+          <PrivateRoute exact path="/order">
+            <Navigation></Navigation>
+            <Order></Order>
+            <Footer></Footer>
+          </PrivateRoute>
+          <PrivateRoute exact path="/dashboard">
+            <Navigation></Navigation>
+            <Dashboard></Dashboard>
+            <Footer></Footer>
+          </PrivateRoute>
+          <Route exact path="/cart">
+            <Navigation></Navigation>
+            <ShoppingCart></ShoppingCart>
+            <Footer></Footer>
+          </Route>
+          <Route exact path="/admin">
+            <Navigation></Navigation>
+            <Admin></Admin>
+            <Footer></Footer>
+          </Route>
+          <Route exact path="/details/:id">
+            <Navigation></Navigation>
+            <Details></Details>
+            <Footer></Footer>
+          </Route>
+          <PrivateRoute exact path="/checkout">
+            <Navigation></Navigation>
+            <Checkout></Checkout>
+            <Footer></Footer>
+          </PrivateRoute>
+        </Switch>
+      </Router>
+      {/* {allProduct.length !== 0 ? (
         <Router>
           <Switch>
             <Route exact path="/">
@@ -83,7 +137,7 @@ const Routing = () => {
             <div class="loader"></div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };
