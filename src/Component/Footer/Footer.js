@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         <div>
           <h3>Contact Us</h3>
-          <p>info@sohi.gmail.com</p>
+          <p>info@gadgetzone.com</p>
         </div>
       </div>
     </div>

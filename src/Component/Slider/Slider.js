@@ -7,9 +7,16 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+// Import Swiper styles
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import "swiper/css/scrollbar";
+// import "swiper/swiper.css";
+// import "swiper/components/navigation/navigation.css";
+// import "swiper/components/pagination/pagination.css";
 SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay]);
 const Slider = () => {
   return (
